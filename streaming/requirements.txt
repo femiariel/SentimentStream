@@ -1,0 +1,7 @@
+pandas
+praw
+numpy
+pyspark
+textblob
+kafka
+findspark
