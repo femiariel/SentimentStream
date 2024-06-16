@@ -1,7 +1,7 @@
 # Projet d'Analyse de Sentiments en Temps Réel des Commentaires Reddit
 
 ## Description
-Ce projet vise à analyser les sentiments des commentaires sur Reddit en temps réel en utilisant un pipeline de traitement de données comprenant Apache Kafka, Zookeeper, et Spark Streaming. Le projet est construit en Python et est déployé à l'aide de Docker.
+Ce projet vise à analyser les sentiments des commentaires sur Reddit sur le thème de la finance en temps réel en utilisant un pipeline de traitement de données comprenant Apache Kafka, Zookeeper, et Spark Streaming. Le projet est construit en Python et est déployé à l'aide de Docker. Le dashboard sur l'interface graphique est actualisé chaque 10 min avec les données en temps réel .
 
 ## Prérequis
 - Docker et Docker Compose doivent être installés sur votre système.
@@ -37,7 +37,7 @@ Pour démarrer le projet, exécutez les commandes suivantes dans le répertoire 
 Ces commandes construiront et lanceront les conteneurs nécessaires pour Apache Kafka, Zookeeper, et Spark Streaming, ainsi que pour l'application Python.
 
 ## Fonctionnement
-Une fois les conteneurs lancés, le pipeline de traitement des données est activé. Les commentaires Reddit sont récupérés en temps réel, envoyés à Kafka, puis traités par Spark Streaming pour l'analyse de sentiments. Les résultats sont ensuite affichés sous forme de dataframe dans le terminal.
+Une fois les conteneurs lancés, le pipeline de traitement des données est activé. Les commentaires Reddit sont récupérés en temps réel, envoyés à Kafka, puis traités par Spark Streaming pour l'analyse de sentiments. Les résultats peuvent ensuite etre visualisés via l'interface graphique sur le lien donné au point 3 . Chaque 1O min, le dashboard s'actualise avec les données en temps réel .
 
 
 
