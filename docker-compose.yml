@@ -5,8 +5,9 @@ services:
     container_name: spark
     networks:
       - kafka-net
-    command: /bin/bash -c "sleep 100 && /opt/bitnami/spark/bin/spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.1.1 /opt/bitnami/spark/work/str.py"
+    command: /bin/bash -c "sleep 100 && /opt/bitnami/spark/bin/spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.1.1 /opt/bitnami/spark/work/str.py & sleep 50 && python /opt/bitnami/spark/work/dash_server.py"
     ports:
+      - "8050:8050"
       - "9090:8080"
       - "7077:7077"
     volumes:

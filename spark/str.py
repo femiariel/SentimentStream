@@ -131,18 +131,26 @@ subjectivity_tweets = comments.withColumn('subjectivity', subjectivity(col("proc
 polarity_tweets = subjectivity_tweets.withColumn("polarity", polarity(col("processed_text")))
 sentiment_tweets = polarity_tweets.withColumn("sentiment", sentiment(col("polarity")))
 
-# Écrire les données de streaming dans une table en mémoire
+# Écrire les données de streaming dans un fichier parquet
 query = sentiment_tweets \
     .writeStream \
     .outputMode("append") \
-    .format("memory") \
-    .queryName("sentiment") \
+    .format("parquet") \
+    .option("path", "/opt/bitnami/spark/work/sentiment_data") \
+    .option("checkpointLocation", "/opt/bitnami/spark/work/checkpoint") \
     .start()
 
+# Rester en attente pour que le streaming continue
+query.awaitTermination()
+
+
+"""
 # Interroger et afficher les résultats périodiquement
 import time
 for x in range(5):  # Par exemple, exécuter 10 fois
-    spark.sql("SELECT author,processed_text,subjectivity,sentiment FROM sentiment").show()
+    d=spark.sql("SELECT author,processed_text,subjectivity,sentiment FROM sentiment").toPandas()
+    print(d)
     time.sleep(5)  # Attendre 5 secondes entre chaque requête
 
 print("hello ariel")
+"""

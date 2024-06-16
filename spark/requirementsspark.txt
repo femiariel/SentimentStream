@@ -1,1 +1,7 @@
 textblob
+pandas
+plotly
+dash
+plotly-express
+pyspark
+py4j
