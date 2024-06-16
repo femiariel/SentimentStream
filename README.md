@@ -14,6 +14,7 @@ Le projet utilise les composants suivants :
 - **Spark Streaming** : pour le traitement en temps réel des données.
 - **Python** : pour les scripts d'analyse de sentiments et l'interaction avec l'API Reddit.
 - **Docker** : pour la conteneurisation et la simplification du déploiement.
+- **Dash** : pour l'interface graphique
 
 ## Configuration et Installation
 Assurez-vous que Docker et Docker Compose sont installés sur votre machine. Clonez ensuite ce dépôt sur votre machine locale.
@@ -29,7 +30,10 @@ Pour démarrer le projet, exécutez les commandes suivantes dans le répertoire 
    ```bash
    docker-compose up
    ```
-
+3. Accéder à l'interface graphique en lançant le lien suivant :
+   ```
+   http://localhost:8050
+   ```
 Ces commandes construiront et lanceront les conteneurs nécessaires pour Apache Kafka, Zookeeper, et Spark Streaming, ainsi que pour l'application Python.
 
 ## Fonctionnement
